@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Gallery from "./Gallery";
 import TempGen from "./TempGen";
 import utils from './utils/utils';
-import {getMemes} from './utils/api';
+//import {getMemes} from './utils/api';
 
 export default class App extends Component {
   state = {
@@ -67,17 +67,17 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const sessionId = this.getSessionId();
-    getMemes(sessionId)
-      .then(data => {
-            this.setState({ images: data.rows.filter((i) => i.box_count === 2) });
-        });
-    //fetch("https://api.imgflip.com/get_memes")
-    //  .then((r) => r.json())
-    //  .then((images) => {
-    //    console.log(images);
-    //    this.setState({ images2: images.data.memes.filter((i) => i.box_count === 2) });
-    //  });
+    //const sessionId = this.getSessionId();
+    //getMemes(sessionId)
+    //  .then(data => {
+    //        this.setState({ images: data.rows.filter((i) => i.box_count === 2) });
+    //    });
+    fetch("https://api.imgflip.com/get_memes")
+      .then((r) => r.json())
+      .then((images) => {
+        console.log(images);
+        this.setState({ images: images.data.memes.filter((i) => i.box_count === 2) });
+      });
   }
   
 }

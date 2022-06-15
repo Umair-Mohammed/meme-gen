@@ -1,5 +1,5 @@
 import utils from './utils';
-import getOrCreateAuthToken from './getOrCreateAuthToken';
+//import getOrCreateAuthToken from './getOrCreateAuthToken';
 
 export const getMemes = async (sessionId) => {
 
@@ -7,7 +7,7 @@ export const getMemes = async (sessionId) => {
   const ENDPOINT = `https://${process.env.REACT_APP_ASTRA_DB_ID}-${process.env.REACT_APP_ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v1`;
   const REACT_APP_ASTRA_DB_KEYSPACE = process.env.REACT_APP_ASTRA_DB_KEYSPACE;
   const TABLE_NAME = 'memegen';
-  const {authToken} = await getOrCreateAuthToken();
+  const {authToken} = 'delete';
 
   try {
     const response = await fetch(`${ENDPOINT}/keyspaces/${REACT_APP_ASTRA_DB_KEYSPACE}/tables/${TABLE_NAME}/rows`, {
@@ -26,7 +26,7 @@ export const getMemesSaved = async (query) => {
   const ENDPOINT = `https://${process.env.REACT_APP_ASTRA_DB_ID}-${process.env.REACT_APP_ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v1`;
   const REACT_APP_ASTRA_DB_KEYSPACE = process.env.REACT_APP_ASTRA_DB_KEYSPACE;
   const TABLE_NAME = 'memes_saved';
-  const {authToken} = await getOrCreateAuthToken();
+  const {authToken} = 'delete';
 
   try {
     const response = await fetch(`${ENDPOINT}/keyspaces/${REACT_APP_ASTRA_DB_KEYSPACE}/tables/${TABLE_NAME}/rows/query`, {
@@ -68,7 +68,7 @@ export const saveMemes = async (meme, sessionId) => {
   const ENDPOINT = `https://${process.env.REACT_APP_ASTRA_DB_ID}-${process.env.REACT_APP_ASTRA_DB_REGION}.apps.astra.datastax.com/api/rest/v1`;
   const REACT_APP_ASTRA_DB_KEYSPACE = process.env.REACT_APP_ASTRA_DB_KEYSPACE;
   const TABLE_NAME = 'memes_saved';
-  const {authToken} = await getOrCreateAuthToken();
+  const {authToken} = 'delete';
 
   try {
     const response = await fetch(`${ENDPOINT}/keyspaces/${REACT_APP_ASTRA_DB_KEYSPACE}/tables/${TABLE_NAME}/rows`, {

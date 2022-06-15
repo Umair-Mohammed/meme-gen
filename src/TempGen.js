@@ -4,8 +4,8 @@ import Image from "./Image2";
 import "./ImageList.css"
 import * as svg from "save-svg-as-png";
 import utils from './utils/utils';
-import {saveMemes} from './utils/api';
-import {getMemesSaved} from './utils/api';
+//import {saveMemes} from './utils/api';
+//import {getMemesSaved} from './utils/api';
 
 const initialState = {
     toptext: "",
@@ -125,10 +125,10 @@ class TempGen extends Component {
             meme['bottomtext'] = document.getElementById("bottomtext").value;
             meme['image_source'] = image_source;
 
-            saveMemes(meme,sessionId)
-              .then(data => {
-                    //console.log(data);
-                });
+            //saveMemes(meme,sessionId)
+            //  .then(data => {
+            //        //console.log(data);
+            //    });
 
         });
         
@@ -159,17 +159,17 @@ class TempGen extends Component {
     }
 
     componentDidMount() {
-        const imageId = this.props.meme.id;
+        //const imageId = this.props.meme.id;
         //console.log(imageId);
         //const query = [];
         //    query['columnNames'] = ["image_source"];
         //    query['filters'] = [{"value":["161865971"],"columnName":"image_source","operator":"eq"}];
         // i had some issues building the object so I just ended up using the original test string
-        const query = '{ "columnNames": ["uuid","id","name","image_source"], "filters": [{"value": ["' + imageId + '"],"columnName": "id","operator": "eq"}]}';
-        getMemesSaved(query)
-          .then(data => {
-                this.setState({ saved_images: data.rows });
-            });
+        //const query = '{ "columnNames": ["uuid","id","name","image_source"], "filters": [{"value": ["' + imageId + '"],"columnName": "id","operator": "eq"}]}';
+        //getMemesSaved(query)
+        //  .then(data => {
+        //        this.setState({ saved_images: data.rows });
+        //    });
     }
 
     render() {
